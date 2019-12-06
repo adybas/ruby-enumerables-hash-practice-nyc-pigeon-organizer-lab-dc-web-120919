@@ -5,8 +5,11 @@ def nyc_pigeon_organizer(data)
   data.each do |attribute, data| #attribute => :color; data => different colors
     data.each do |value, names| # value => :purple ; names => array of names
       names.each do |name|# => ["Theo", "Peter Jr.", "Lucky"]
-        if !new_hash[name]
-          new_hash[name]
+        if !new_hash[name] #if the key doesn't exist
+          new_hash[name] = {} #create it
+        end
+        if !new_hash[name][attribute]
+          new_hash[name][attribute] = []
         end
       end
     end
